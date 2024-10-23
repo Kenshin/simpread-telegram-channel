@@ -6,6 +6,8 @@ import { getEnv } from '../lib/env'
 
 const locale = getEnv(import.meta.env, Astro, 'LOCALE')
 const timezone = getEnv(import.meta.env, Astro, 'TIMEZONE')
+const homepage = getEnv(import.meta.env, Astro, 'HOMEPAGE')
+const origin = getEnv(import.meta.env, Astro, 'ORIGINURL')
 
 locale && dayjs.locale(locale)
 
@@ -14,6 +16,9 @@ const { post } = Astro.props
 
 const datetime = dayjs(post.datetime).tz(timezone)
 const timeago = datetime.isBefore(dayjs().subtract(1, 'w')) ? datetime.format('HH:mm · ll · ddd') : datetime.fromNow()
+const fmtURL = (str) => {
+  return str.replace(new RegExp(origin, 'gi'), `${homepage}/posts`)
+}
 ---
 
 <div class="item" style={{ 'view-transition-name': `post-${post.id}` }}>
@@ -25,7 +30,7 @@ const timeago = datetime.isBefore(dayjs().subtract(1, 'w')) ? datetime.format('H
       </a>
     </div>
   </div>
-  {post.content.length > 0 && <div class={`text-box content`} set:html={post.content} />}
+  {post.content.length > 0 && <div class={`text-box content`} set:html={fmtURL(post.content)} />}
   {
     post.tags.length > 0 && (
       <div class="tag-box" style={post.content.length === 0 ? 'padding-top: 30px;' : ''}>
