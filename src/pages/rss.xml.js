@@ -14,8 +14,8 @@ export async function GET(Astro) {
   const url = new URL(request.url)
   url.pathname = SITE_URL
 
-  const HOMEPAGE = getEnv(import.meta.env, Astro, 'HOMEPAGE')
-  const ORIGINURL = getEnv(import.meta.env, Astro, 'ORIGINURL')
+  const HOMEPAGE = getEnv(import.meta.env, Astro, 'HOMEPAGE') ?? 'n.simp.red'
+  const ORIGINURL = getEnv(import.meta.env, Astro, 'ORIGINURL') ?? 't.me/simpread'
   const fmtURL = (str) => {
     return str.replace(new RegExp(ORIGINURL, 'gi'), `${HOMEPAGE}/posts`)
   }
