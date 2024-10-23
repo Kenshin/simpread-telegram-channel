@@ -14,10 +14,10 @@ export async function GET(Astro) {
   const url = new URL(request.url)
   url.pathname = SITE_URL
 
-  const HOMEPAGE = getEnv(import.meta.env, Astro, 'HOMEPAGE') ?? 'n.simp.red'
-  const ORIGINURL = getEnv(import.meta.env, Astro, 'ORIGINURL') ?? 't.me/simpread'
+  const homepage = getEnv(import.meta.env, Astro, 'HOMEPAGE')
+  const origin = getEnv(import.meta.env, Astro, 'ORIGINURL')
   const fmtURL = (str) => {
-    return str.replace(new RegExp(ORIGINURL, 'gi'), `${HOMEPAGE}/posts`)
+    return str.replace(new RegExp(origin, 'gi'), `${homepage}/posts`)
   }
 
   return rss({
