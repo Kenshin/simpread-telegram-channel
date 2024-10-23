@@ -1,6 +1,7 @@
 import rss from '@astrojs/rss'
 import sanitizeHtml from 'sanitize-html'
 import { getChannelInfo } from '../lib/telegram'
+import { getEnv } from '../lib/env'
 
 export const prerender = false
 
@@ -13,6 +14,12 @@ export async function GET(Astro) {
   const url = new URL(request.url)
   url.pathname = SITE_URL
 
+  const HOMEPAGE = getEnv(import.meta.env, Astro, 'HOMEPAGE')
+  const ORIGINURL = getEnv(import.meta.env, Astro, 'ORIGINURL')
+  const fmtURL = (str) => {
+    return str.replace(new RegExp(ORIGINURL, 'gi'), `${HOMEPAGE}/posts`)
+  }
+
   return rss({
     title: channel.title,
     description: channel.description,
@@ -22,7 +29,7 @@ export async function GET(Astro) {
       title: item.title,
       description: item.description,
       pubDate: new Date(item.datetime),
-      content: sanitizeHtml(item.content, {
+      content: sanitizeHtml(fmtURL(item.content), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'video', 'audio']),
         allowedAttributes: {
           ...sanitizeHtml.defaults.allowedAttributes,
