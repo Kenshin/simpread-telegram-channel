@@ -160,6 +160,19 @@ a.item-link:hover {
   filter: var(--icon-hover-filter);
 }
 
+.social-icon.home,
+.social-icon.subscribe,
+.social-icon.plugin
+{
+  height: 13px;
+}
+
+.social-icon.help,
+.social-icon.pro
+{
+  height: 14px;
+}
+
 #breadcrumb {
   padding: 10px 0px 10px 0px;
   margin-bottom: 20px;
