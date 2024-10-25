@@ -654,7 +654,19 @@ audio::-webkit-media-controls-panel {
 }
 
 .content code {
-  line-break: anywhere;
+  font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+    padding: 1px 3px;
+    color: #EB5757;
+    background: rgba(135,131,120,0.15);
+    font-size: 85%;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 3px;
+    border-bottom: 0.05em solid;
+}
+
+.content code br:not(:last-of-type) {
+  display: none;
 }
 
 .content figure {
