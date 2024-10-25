@@ -855,7 +855,17 @@ li:has(input[type='checkbox']:checked:disabled)::before {
   }
 
   #header {
-    padding: 0px;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 40px;
+  }
+
+  .header-icons {
+    position: absolute;
+    left: 0;
+    top: 65px;
+    right: 0;
+    justify-content: space-between;
   }
 
   .items {
@@ -909,7 +919,6 @@ li:has(input[type='checkbox']:checked:disabled)::before {
 
   #site-intro {
     margin-left: 0px;
-    margin-top: 20px;
     margin-bottom: 20px;
   }
 }
