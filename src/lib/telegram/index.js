@@ -161,7 +161,7 @@ function getPost($, item, { channel, staticProxy, index = 0, type }) {
     const str = content?.html()
     const arr = str.match(/(?:\s*#[\w\u4E00-\u9FA5]+)+$/) // (?:\s*#\S+)+$
     if (arr && arr.length > 0) {
-      tags = arr[0].split(' ')
+      tags = arr[0].split(' ')?.filter(tag => tag)
     }
   }
   else {
