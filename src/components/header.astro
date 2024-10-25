@@ -9,6 +9,11 @@ import discord from '../assets/discord.svg'
 import telegram from '../assets/telegram.svg'
 import mastodon from '../assets/mastodon.svg'
 import bluesky from '../assets/bluesky.svg'
+import subscribe from '../assets/subscribe.svg'
+import plugin from '../assets/plugin.svg'
+import help from '../assets/help.svg'
+import pro from '../assets/pro.svg'
+import home from '../assets/home.svg'
 
 const { SITE_URL } = Astro.locals
 const { channel } = Astro.props
@@ -39,6 +44,33 @@ const staticProxy = getEnv(import.meta.env, Astro, 'STATIC_PROXY') ?? '/static/'
     </a>
   </div>
   <div class="header-icons">
+    <a href={`https://simpread.pro/pro.html`} target="_blank" rel="alternate" type="application/rss+xml" title="官网">
+      <img {...home} alt="官网" class="social-icon" width="1em" />
+    </a>
+    <a href={`https://simpread.pro/price`} target="_blank" rel="alternate" type="application/rss+xml" title="高级账户">
+      <img {...pro} alt="高级账户" class="social-icon" width="1em" />
+    </a>
+    <a
+      href={`https://simpread.ksria.cn/plugins/`}
+      target="_blank"
+      rel="alternate"
+      type="application/rss+xml"
+      title="插件中心"
+    >
+      <img {...plugin} alt="插件中心" class="social-icon" width="1em" />
+    </a>
+    <a
+      href={`https://simpread.pro/subscribe`}
+      target="_blank"
+      rel="alternate"
+      type="application/rss+xml"
+      title="订阅中心"
+    >
+      <img {...subscribe} alt="订阅中心" class="social-icon" width="1em" />
+    </a>
+    <a href={`https://simpread.pro/help`} target="_blank" rel="alternate" type="application/rss+xml" title="帮助中心">
+      <img {...help} alt="帮助中心" class="social-icon" width="1em" />
+    </a>
     <a href={`${SITE_URL}rss.xml`} target="_blank" rel="alternate" type="application/rss+xml" title="RSS Feed">
       <img {...rss} alt="RSS" class="social-icon" width="1em" />
     </a>
