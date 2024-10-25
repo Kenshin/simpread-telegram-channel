@@ -104,6 +104,19 @@ function fmtTitle($title) {
   return title.replace(/<.*?>/g, '')
 }
 
+function fmtContent(str, type, tags) {
+  if (type === 'post' && tags.length > 0) {
+    str = str.replace(/(?:\s*#[\w\u4E00-\u9FA5]+)+$/, '') // (?:\s*#\S+)+$
+    tags.forEach((tag) => {
+      str = str.replace(new RegExp(tag, 'gi'), `<a href="/search/%23${tag.replace('#', '')}" title="${tag}">${tag}</a>`)
+    })
+    return str
+  }
+  else {
+    return str
+  }
+}
+
 function modifyHTMLContent($, content, { index } = {}) {
   $(content).find('.emoji')?.removeAttr('style')
   $(content).find('a')?.each((_index, a) => {
@@ -131,7 +144,7 @@ function modifyHTMLContent($, content, { index } = {}) {
   return content
 }
 
-function getPost($, item, { channel, staticProxy, index = 0 }) {
+function getPost($, item, { channel, staticProxy, index = 0, type }) {
   item = item ? $(item).find('.tgme_widget_message') : $('.tgme_widget_message')
   const content = $(item).find('.js-message_reply_text')?.length > 0
     ? modifyHTMLContent($, $(item).find('.tgme_widget_message_text.js-message_text'), { index })
@@ -140,9 +153,29 @@ function getPost($, item, { channel, staticProxy, index = 0 }) {
   const title = fmtTitle(content)
   const id = $(item).attr('data-post')?.replace(new RegExp(`${channel}/`, 'i'), '')
 
-  const tags = $(content).find('a[href^="?q="]')?.each((_index, a) => {
+  let tags = $(content).find('a[href^="?q="]')?.each((_index, a) => {
     $(a)?.attr('href', `/search/${encodeURIComponent($(a)?.text())}`)
   })?.map((_index, a) => $(a)?.text()?.replace('#', ''))?.get()
+
+  if (type === 'post') {
+    const str = content?.html()
+    const arr = str.match(/(?:\s*#[\w\u4E00-\u9FA5]+)+$/) // (?:\s*#\S+)+$
+    if (arr && arr.length > 0) {
+      tags = arr[0].split(' ')
+    }
+  }
+  else {
+    const str = content?.text()
+    const arr = str.match(/(?:\s*#[\w\u4E00-\u9FA5]+)+$/) // (?:\s*#\S+)+$
+    if (arr && arr.length > 0) {
+      arr[0].split(' ').forEach((tag) => {
+        const $a = $(content).find(`a[title="${tag}"]:last`)
+        if ($a.next().is('a') || $a.next().length === 0) {
+          $a.remove()
+        }
+      })
+    }
+  }
 
   return {
     id,
@@ -156,7 +189,7 @@ function getPost($, item, { channel, staticProxy, index = 0 }) {
       getImages($, item, { staticProxy, id, index, title }),
       getVideo($, item, { staticProxy, id, index, title }),
       getAudio($, item, { staticProxy, id, index, title }),
-      content?.html(),
+      fmtContent(content?.html(), type, tags),
       getImageStickers($, item, { staticProxy, index }),
       getVideoStickers($, item, { staticProxy, index }),
       // $(item).find('.tgme_widget_message_sticker_wrap')?.html(),
@@ -216,7 +249,7 @@ export async function getChannelInfo(Astro, { before = '', after = '', q = '', t
 
   const $ = cheerio.load(html, {}, false)
   if (id) {
-    const post = getPost($, null, { channel, staticProxy })
+    const post = getPost($, null, { channel, staticProxy, type })
     cache.set(cacheKey, post)
     return post
   }
