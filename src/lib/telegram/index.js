@@ -262,7 +262,7 @@ export async function getChannelInfo(Astro, { before = '', after = '', q = '', t
     title: $('.tgme_channel_info_header_title')?.text(),
     description: $('.tgme_channel_info_description')?.text(),
     descriptionHTML: modifyHTMLContent($, $('.tgme_channel_info_description'))?.html(),
-    avatar: $('.tgme_page_photo_image img')?.attr('src'),
+    avatar: 'https://simpread-1254315611.cos.ap-shanghai.myqcloud.com/favicon/android-icon-192x192.png', // $('.tgme_page_photo_image img')?.attr('src'),
   }
 
   cache.set(cacheKey, channelInfo)
