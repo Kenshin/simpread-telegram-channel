@@ -157,7 +157,7 @@ function getPost($, item, { channel, staticProxy, index = 0, type }) {
     $(a)?.attr('href', `/search/${encodeURIComponent($(a)?.text())}`)
   })?.map((_index, a) => $(a)?.text()?.replace('#', ''))?.get()
 
-  const origin_content = content?.html()?.replace(/href="\/search\//gi, `href="https://n.simp.red/search/`)
+  const origin_content = content?.html()?.replace(/href="\/search\//gi, `href="n.simp.red/search/`)
 
   if (type === 'post') {
     const str = content?.html()
