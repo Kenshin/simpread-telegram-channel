@@ -17,7 +17,9 @@ export async function GET(Astro) {
   const homepage = getEnv(import.meta.env, Astro, 'HOMEPAGE')
   const origin = getEnv(import.meta.env, Astro, 'ORIGINURL')
   const fmtURL = (str) => {
-    return str.replace(new RegExp(origin, 'gi'), `${homepage}/posts`)
+    return str
+      .replace(new RegExp(origin, 'gi'), `https://${homepage}/posts`)
+      .replace(/href="n.simp.red/gi, `href="https://${homepage}`)
   }
 
   return rss({
