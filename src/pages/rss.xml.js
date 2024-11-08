@@ -20,7 +20,7 @@ export async function GET(Astro) {
     return str
       .replace(new RegExp(origin, 'gi'), `https://${homepage}/posts`)
       .replace(/href="n.simp.red/gi, `href="https://${homepage}`)
-      .replace(/img src="/gi, `img src="https://${homepage}/static/`)
+      // .replace(/img src="/gi, `img src="https://${homepage}/static/`)
   }
 
   return rss({
