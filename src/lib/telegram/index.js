@@ -157,6 +157,8 @@ function getPost($, item, { channel, staticProxy, index = 0, type }) {
     $(a)?.attr('href', `/search/${encodeURIComponent($(a)?.text())}`)
   })?.map((_index, a) => $(a)?.text()?.replace('#', ''))?.get()
 
+  const origin_content = content?.html()?.replace(/href="\/search\//gi, `href="https://n.simp.red/search/`)
+
   if (type === 'post') {
     const str = content?.html()
     const arr = str.match(/(?:\s*#[\w\u4E00-\u9FA5]+)+$/) // (?:\s*#\S+)+$
@@ -184,6 +186,7 @@ function getPost($, item, { channel, staticProxy, index = 0, type }) {
     datetime: $(item).find('.tgme_widget_message_date time')?.attr('datetime'),
     tags,
     text: content?.text(),
+    origin_content,
     content: [
       getReply($, item, { channel }),
       getImages($, item, { staticProxy, id, index, title }),
