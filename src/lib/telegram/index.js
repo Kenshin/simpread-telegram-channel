@@ -186,7 +186,29 @@ function getPost($, item, { channel, staticProxy, index = 0, type }) {
     datetime: $(item).find('.tgme_widget_message_date time')?.attr('datetime'),
     tags,
     text: content?.text(),
-    origin_content,
+    origin_content: [
+      getReply($, item, { channel }),
+      getImages($, item, { staticProxy, id, index, title }),
+      getVideo($, item, { staticProxy, id, index, title }),
+      getAudio($, item, { staticProxy, id, index, title }),
+      origin_content,
+      getImageStickers($, item, { staticProxy, index }),
+      getVideoStickers($, item, { staticProxy, index }),
+      // $(item).find('.tgme_widget_message_sticker_wrap')?.html(),
+      $(item).find('.tgme_widget_message_poll')?.html(),
+      $.html($(item).find('.tgme_widget_message_document_wrap')),
+      $.html($(item).find('.tgme_widget_message_video_player.not_supported')),
+      $.html($(item).find('.tgme_widget_message_location_wrap')),
+      getLinkPreview($, item, { staticProxy, index }),
+    ].filter(Boolean).join('').replace(/(url\(["'])((https?:)?\/\/)/g, (match, p1, p2, _p3) => {
+      if (p2 === '//') {
+        p2 = 'https://'
+      }
+      if (p2?.startsWith('t.me')) {
+        return false
+      }
+      return `${p1}${staticProxy}${p2}`
+    }),
     content: [
       getReply($, item, { channel }),
       getImages($, item, { staticProxy, id, index, title }),
