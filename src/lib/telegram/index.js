@@ -90,8 +90,9 @@ function getReply($, item, { channel }) {
   const reply = $(item).find('.tgme_widget_message_reply')
   reply?.wrapInner('<small></small>')?.wrapInner('<blockquote></blockquote>')
 
-  const href = reply?.attr('href')
+  let href = reply?.attr('href')
   if (href) {
+    href.startsWith('/posts/') && (href = `https://t.me/simpread${href}`)
     const url = new URL(href)
     reply?.attr('href', `${url.pathname}`.replace(new RegExp(`/${channel}/`, 'i'), '/posts/'))
   }
