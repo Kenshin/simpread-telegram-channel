@@ -1,133 +1,77 @@
-# BroadcastChannel
-
-**Turn your Telegram Channel into a MicroBlog.**
+<p align="center"><img src="http://sr.ksria.cn/logo%20bigger.png" /></p>
+<h1 align="center">阅读模式 + 标注 + 稍后读 + 本地化 = 简悦 <sup>2.0</sup></h1>
+<p align="center">让你瞬间进入沉浸式阅读的扩展，还原阅读的本质，提升你的阅读体验，不止如此完全本地化的简悦 2.0 真正成为你的生产力工具</p>
+<p align="center">
+   <a target="_blank" href="https://simpread.pro"><img src="https://img.shields.io/badge/website-_simpread.pro-195bf7.svg"></a>
+   <a target="_blank" href="https://chrome.google.com/webstore/detail/simpread-reader-view/ijllcpnolfcooahcekpamkbidhejabll"><img src="https://badgen.net/chrome-web-store/stars/ijllcpnolfcooahcekpamkbidhejabll?icon=chrome&color=0f9d58"></a>
+</p>
+<p align="center">
+   <a target="_blank" href="https://microsoftedge.microsoft.com/addons/detail/%E7%AE%80%E6%82%A6-simpread/clgdhlhfiocphghdkdbgdlmfaafccfmc"><img src="https://img.shields.io/badge/download-_edge_addon-3b6dcc.svg"></a>
+   <a target="_blank" href="https://chrome.google.com/webstore/detail/%E7%AE%80%E6%82%A6-simpread/ijllcpnolfcooahcekpamkbidhejabll"><img src="https://img.shields.io/badge/download-_chrome_webstore-195bf7.svg"></a>
+   <a href="http://ksria.com/simpread/crx/2.2.0/simpread.crx"><img src="https://img.shields.io/badge/download-_crx-0294b9.svg"></a>
+</p>
 
 ---
 
-English | [简体中文](./README.zh-cn.md)
+# 简悦 Telegram Channel Website
 
-## ✨ Features
+## 🔗 地址
 
-- **Turn your Telegram Channel into a MicroBlog**
-- **SEO friendly** `/sitemap.xml`
-- **0 JS on the browser side**
-- **RSS and RSS JSON** `/rss.xml` `/rss.json`
+[https://n.simp.red](https://n.simp.red/)
 
-## 🪧 Demo
+## 📝 写在前面
 
-### Real users
+👋 简悦不仅仅只是一个扩展端功能，简悦全部功能涵盖：
 
-- [面条实验室](https://memo.miantiao.me/)
-- [Find Blog👁发现博客](https://broadcastchannel.pages.dev/)
-- [Memos 广场 🎪](https://now.memobbs.app/)
-- [APPDO 数字生活指南](https://mini.appdo.xyz/)
-- [85.60×53.98卡粉订阅/提醒](https://tg.docofcard.com/)
-- [新闻在花频道](https://tg.istore.app/)
-- [ALL About RSS](https://blog.rss.tips/)
-- [Charles Chin's Whisper](https://memo.eallion.com/)
-- [PlayStation 新闻转发](https://playstationnews.pages.dev)
-- [Yu's Life](https://daily.pseudoyu.com/)
-- [Leslie 和朋友们](https://tg.imlg.co/)
-- [OKHK 分享](https://tg.okhk.net/)
-- [gledos 的微型博客](https://microblogging.gledos.science)
-- [Steve Studio](https://tgc.surgeee.me/)
-- [LiFePO4:沙雕吐槽](https://lifepo4.top)
-- [Hotspot Hourly](https://hourly.top/)
-- [大河马中文财经新闻分享](https://a.xiaomi318.com/)
-- [\_My. Tricks 🎩 Collection](https://channel.mykeyvans.com)
-- [小报童专栏精选](https://xiaobaotong.genaiprism.site/)
-- [Fake news](https://fake-news.csgo.ovh/)
-- [miyi23's Geekhub资源分享](https://gh.miyi23.top/)
-- [Magazine｜期刊杂志｜财新周刊](https://themagazine.top)
-- [Remote Jobs & Cooperation](https://share-remote-jobs.vercel.app/)
-- [甬哥侃侃侃--频道发布](https://ygkkktg.pages.dev)
-- [Fugoou.log](https://fugoou.xyz)
-- [Bboysoul的博客](https://tg.bboy.app/)
-- [MakerHunter](https://share.makerhunter.com/)
-- [ChatGPT/AI新闻聚合](https://g4f.icu/)
+- 扩展端
+- 同步助手
+- 插件
+- 高级适配规则
+- API
 
-### Platform
+所以不是每个功能都会在下面描述它的更新日志，简悦每周都会更新 3 ~ 4 个功能，想要了解简悦更新内容的话，请务必 [订阅简悦的发布汇总](https://simpread.pro/subscribe)，包括：
 
-1. [Cloudflare](https://broadcast-channel.pages.dev/)
-2. [Netlify](https://broadcast-channel.netlify.app/)
-3. [Vercel](https://broadcast-channel.vercel.app/)
+1️⃣ [Telegram Channel（首选）🔥🔥🔥](https://t.me/simpread)
 
-BroadcastChannel supports deployment on serverless platforms like Cloudflare, Netlify, Vercel that support Node.js SSR, or on a VPS.
-For detailed tutorials, see [Deploy your Astro site](https://docs.astro.build/en/guides/deploy/).
+2️⃣ [竹白上的周报（欢迎使用微信订阅） 🔥🔥🔥](https://simpread.zhubai.love/)
 
-## 🧱 Tech Stack
+3️⃣ [Newsletter 🔥🔥](https://follow.it/simpread?action=followPub)
 
-- Framework: [Astro](https://astro.build/)
-- CMS: [Telegram Channels](https://telegram.org/tour/channels)
-- Template: [Sepia](https://github.com/Planetable/SiteTemplateSepia)
+4️⃣ [RSS](https://rss.simpread.pro/feed)
 
-## 🏗️ Deployment
+而更新频率最高的频道来自 [Telegram Channel](https://t.me/simpread) 但并不是每个用户都可以方便访问并且 Telegram Channel 的搜索也是一言难尽。
 
-### Docker
+为了解决此问题，我将 Telegram Channel 转换为 Website 方便每个用户的使用。
 
-1. `docker pull ghcr.io/ccbikai/broadcastchannel:main`
-2. `docker run -d --name broadcastchannel -p 4321:4321 -e CHANNEL=miantiao_me ghcr.io/ccbikai/broadcastchannel:main`
+## 📚 功能
 
-### Serverless
+1️⃣ 将每个 Telegram Channel Post 都具有可以正常访问的链接 e.g. https://n.simp.red/posts/596
 
-1. [Fork](https://github.com/ccbikai/BroadcastChannel/fork) this project to your GitHub
-2. Create a project on Cloudflare/Netlify/Vercel
-3. Select the `BroadcastChannel` project and the `Astro` framework
-4. Configure the environment variable `CHANNEL` with your channel name. This is the minimal configuration, for more configurations see the options below
-5. Save and deploy
-6. Bind a domain (optional).
-7. Update code, refer to the official GitHub documentation [Syncing a fork branch from the web UI](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-branch-from-the-web-ui).
+2️⃣ 支持标签 e.g. [https://n.simp.red/search/#OpenAI](https://n.simp.red/search/%23OpenAI)
 
-## ⚒️ Configuration
+3️⃣ 支持检索 e.g [https://n.simp.red/search/result?q=知乎](https://n.simp.red/search/result?q=%E7%9F%A5%E4%B9%8E)
 
-```env
-## Telegram Channel Username, must be configured. The string of characters following t.me/
-CHANNEL=miantiao_me
+4️⃣ 支持手机端访问
 
-## Language and timezone settings, language options see [dayjs](https://github.com/iamkun/dayjs/tree/dev/src/locale)
-LOCALE=en
-TIMEZONE=America/New_York
+## 💡 其它
 
-## Social media usernames
-TELEGRAM=ccbikai
-TWITTER=ccbikai
-GITHUB=ccbikai
-MASTODON=mastodon.social/@Mastodon
-BLUESKY=bsky.app
+欢迎加入下面的官方社区：
 
-## The following two social media need to be URLs
-DISCORD=https://DISCORD.com
-PODCAST=https://PODCAST.com
+- [Telegram Group（首选） 🔥🔥🔥](https://t.me/simpreadgroup)
+- [QQ 频道（照顾国内用户的 Discord + Telegram Channel 社区） 🔥🔥](https://pd.qq.com/s/5jp0meyfc)
 
-## Header and footer code injection, supports HTML
-FOOTER_INJECT=FOOTER_INJECT
-HEADER_INJECT=HEADER_INJECT
+简悦近期发布了针对双链笔记的免配置库方案，涵盖 Obsidian、Notion、Logseq、剪藏包等方案：
 
-## SEO configuration options, can prevent search engines from indexing content
-NO_FOLLOW=false
-NO_INDEX=false
+- [语雀上的简悦手册 🔥🔥🔥🔥🔥](https://www.yuque.com/kenshin/simpread/ds8zk0)
 
-## Sentry configuration options, collect server-side errors
-SENTRY_AUTH_TOKEN=SENTRY_AUTH_TOKEN
-SENTRY_DSN=SENTRY_DSN
-SENTRY_PROJECT=SENTRY_PROJECT
+同时也 👏 关于简悦的官方账户：
 
-## Telegram host name and static resource proxy, not recommended to modify
-HOST=telegram.dog
-STATIC_PROXY=
-```
+- [语雀上的简悦手册 🔥🔥🔥🔥🔥](https://www.yuque.com/kenshin/simpread)
+- [知乎专栏 🔥🔥](https://www.zhihu.com/column/kenshin)
+- [B 站 🔥🔥](https://space.bilibili.com/1853727625)
 
-## 🙋🏻 FAQs
+## 🆓 感谢
 
-1. Why is the content empty after deployment?
-   - Check if the channel is public, it must be public
-   - The channel username is a string, not a number
-   - Turn off the "Restricting Saving Content" setting in the channel
-   - Redeploy after modifying environment variables
-   - Telegram blocks public display of some sensitive channels, you can verify by visiting `https://t.me/s/channelusername`.
+此程序来自 [面条](https://t.me/ccbikai) 的开源作品 [BroadcastChannel](https://github.com/ccbikai/BroadcastChannel) 🙏
 
-## ☕ Sponsor
-
-1. [Follow me on Telegram](https://t.me/miantiao_me)
-2. [Follow me on 𝕏](https://x.com/0xKaiBi)
-3. [Sponsor me on GitHub](https://github.com/sponsors/ccbikai)
+我在此代码的基础上稍作修改。
