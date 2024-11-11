@@ -32,7 +32,7 @@ export async function GET(Astro) {
       title: item.title,
       description: item.description,
       pubDate: new Date(item.datetime),
-      content: sanitizeHtml(fmtURL(item.origin_content), {
+      content: sanitizeHtml(fmtURL(item.rss_content), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'video', 'audio']),
         allowedAttributes: {
           ...sanitizeHtml.defaults.allowedAttributes,
